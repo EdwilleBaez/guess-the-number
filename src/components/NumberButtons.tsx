@@ -4,6 +4,8 @@ import React from "react";
 type NumberButtonsProps = {
   numbers: number[];
   chooseNumber: number[];
+  activeButtons: boolean;
+  language: boolean;
   onNumberClick: (number: number) => void;
   deleteNumber: (arr: number[]) => void;
   tryAttempt: (arr: number[]) => void;
@@ -12,6 +14,8 @@ type NumberButtonsProps = {
 const NumberButtons: React.FC<NumberButtonsProps> = ({
   numbers,
   chooseNumber,
+  activeButtons,
+  language,
   onNumberClick,
   deleteNumber,
   tryAttempt,
@@ -35,15 +39,16 @@ const NumberButtons: React.FC<NumberButtonsProps> = ({
           title="Complete 4 numbers"
           onClick={() => tryAttempt(chooseNumber)}
         >
-          Try
+          {language ? "Try" : "Revisar"}
         </button>
       </div>
       <div className="text-md mt-2">
         {numbers.map((number, index) => (
           <button
             key={index}
-            className="hover:bg-red-400 rounded-md w-5 mx-1"
+            className={`rounded-md w-5 mx-1 ${activeButtons ? "text-gray-400" : "hover:bg-red-400" }`}
             onClick={() => onNumberClick(number)}
+            disabled={activeButtons}
           >
             {number}
           </button>
