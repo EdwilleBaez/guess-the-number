@@ -92,7 +92,7 @@ const App: React.FC = () => {
 
   return (
     <div className="w-screen">
-      <div className="justify-center md:flex gap-10 mt-3">
+      <div className="justify-center h-screen md:flex gap-10 mt-3">
         <div className="w-5/6 md:w-2/6 mx-4 mb-10 sm:ml-12">
           <button
             onClick={() => changeLanguage()}
