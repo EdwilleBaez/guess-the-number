@@ -6,13 +6,15 @@ import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  const [activeButtons, setActiveButtons] = useState<boolean>(true); // estado para desabilitar botones
+  const [activeButtons, setActiveButtons] = useState<boolean>(true); // estado para desabilitar botones de numeros
   const [randomNumber, setRandomNumber] = useState<number[]>([]);
-  const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]); //los numeros que son renderizados en arrayToMap
+  const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]); //los numeros intentos individuales que son renderizados en arrayToMap
   const [chooseNumber, setChooseNumber] = useState<number[]>([]); //los numeros que el usuario elige antes de revisarlos
-  const [arrayToMap, setArrayToMap] = useState<number[][]>([]); //arreglo con los numeros seleccionados
+  const [arrayToMap, setArrayToMap] = useState<number[][]>([]); //arreglo con todos los intentos
   const [message, setMessage] = useState<number>(3);
   const [language, setLanguage] = useState<boolean>(true);
+
+  let winCondition = JSON.stringify(selectedNumbers) === JSON.stringify(randomNumber);
 
   function getRandomNums(): number[] {
     const numArr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
@@ -39,7 +41,7 @@ const App: React.FC = () => {
 
   //entrada del jugador sin revisar
   const handleNumberClick = (number: number) => {
-    if (arrayToMap.length < 10) {
+    if (arrayToMap.length < 10 && !winCondition) {
       setChooseNumber((prevNumbers) => {
         if (prevNumbers.length < 4 && !prevNumbers.includes(number)) {
           return [...prevNumbers, number];
@@ -47,7 +49,7 @@ const App: React.FC = () => {
         return prevNumbers;
       });
     }
-    if (arrayToMap.length < 10) {
+    if (arrayToMap.length < 10 && !winCondition) {
       setMessage(0);
     }
   };
@@ -64,7 +66,7 @@ const App: React.FC = () => {
     if (arr.length === 4) {
       setSelectedNumbers(arr);
       setChooseNumber([]);
-    } else if (activeButtons == false && arrayToMap.length < 10) {
+    } else if (arrayToMap.length < 10 && !winCondition) {
       setMessage(4);
     }
   };
@@ -77,9 +79,8 @@ const App: React.FC = () => {
   };
 
   const loseWin = () => {
-    if (JSON.stringify(selectedNumbers) === JSON.stringify(randomNumber)) {
+    if (winCondition) {
       setMessage(1);
-      setActiveButtons(true);
     } else if (arrayToMap.length === 9 ) {
       setMessage(2);
     }
@@ -226,7 +227,7 @@ const App: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="w-5/6 mt-36 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
+      <div className="w-5/6 mt-36 mb-2 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
        <div className="w-2/6 sm:ml-12"><Footer language={language}/></div>
       </div>
     </div>
