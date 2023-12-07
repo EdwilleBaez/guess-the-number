@@ -91,8 +91,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="w-screen">
-      <div className="justify-center h-screen md:flex gap-10 mt-3">
+    <div className="w-screen h-screen">
+      <div className="justify-center md:flex gap-10 mt-3">
         <div className="w-5/6 md:w-2/6 mx-4 mb-10 sm:ml-12">
           <button
             onClick={() => changeLanguage()}
@@ -227,7 +227,7 @@ const App: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="w-5/6 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
+      <div className="w-5/6 mt-44 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
        <div className="w-2/6 sm:ml-12"><Footer language={language}/></div>
       </div>
     </div>
