@@ -80,8 +80,7 @@ const App: React.FC = () => {
     if (JSON.stringify(selectedNumbers) === JSON.stringify(randomNumber)) {
       setMessage(1);
       setActiveButtons(true);
-    }
-    if (arrayToMap.length === 9) {
+    } else if (arrayToMap.length === 9 ) {
       setMessage(2);
     }
   };
@@ -92,8 +91,8 @@ const App: React.FC = () => {
 
   return (
     <div className="w-screen h-screen">
-      <div className="justify-center md:flex gap-10 mt-3">
-        <div className="w-5/6 md:w-2/6 mx-4 mb-10 sm:ml-12">
+      <div className="mx-auto md:flex gap-10 mt-3">
+        <div className="w-5/6 md:w-2/6 mx-auto mb-10 sm:ml-12">
           <button
             onClick={() => changeLanguage()}
             className="hover:underline hover:text-gray-600"
@@ -146,7 +145,7 @@ const App: React.FC = () => {
             )}
           </p>
         </div>
-        <div className="w-5/6 md:w-2/6 mx-4 mb-10 sm:ml-12 md:ml-0 text-center">
+        <div className="w-5/6 md:w-2/6 mx-auto mb-10 sm:ml-12 md:ml-0 text-center">
           <h1 className="text-2xl font-bold mb2 ">
             {language ? "Guess the number" : "Adivina el número"}
           </h1>
@@ -165,10 +164,10 @@ const App: React.FC = () => {
             tryAttempt={handleTryAttempt}
           />
         </div>
-        <div className="w-5/6 md:w-2/6 mx-4 sm:ml-12 md:mr-12 mb-12 justify-center text-center">
+        <div className="w-5/6 md:w-2/6 mx-auto sm:ml-12 md:mr-12 mb-12 justify-center text-center">
           <button
             onClick={() => start()}
-            className="w-36 h-8 mb-4 border mx-auto border-black rounded-sm hover:text-white hover:bg-black"
+            className="w-36 h-8 mb-4 mt-6 border mx-auto border-black rounded-sm hover:text-white hover:bg-black"
           >
             {language
               ? activeButtons
@@ -227,7 +226,7 @@ const App: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="w-5/6 mt-44 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
+      <div className="w-5/6 mt-36 text-center mx-4 flex justify-center sm:ml-12 md:mr-12">
        <div className="w-2/6 sm:ml-12"><Footer language={language}/></div>
       </div>
     </div>
