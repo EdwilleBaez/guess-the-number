@@ -220,7 +220,7 @@ const App: React.FC = () => {
               : "Mejor suerte la próxima :'("}
           </p>
           <p className={`text-red-400 text-3xl ${message === 3 ? "block" : "hidden"}`}>
-            {language ? "Press to start" : "Presione para iniciar"}
+            {language ? "Press start" : "Presione iniciar"}
           </p>
           <p className={`text-red-400 text-3xl ${message === 4 ? "block" : "hidden"}`}>
             {language ? "Complete 4 numbers" : "Completa 4 dígitos"}
