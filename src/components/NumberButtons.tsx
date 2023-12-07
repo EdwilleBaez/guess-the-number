@@ -35,8 +35,7 @@ const NumberButtons: React.FC<NumberButtonsProps> = ({
       </div>
       <div>
         <button
-          className="bg-gray-400 w-20 h-8 rounded-md text-xl mt-3 hover:bg-black hover:text-white"
-          title="Complete 4 numbers"
+          className="bg-gray-400 w-24 h-8 rounded-sm text-xl m-1 hover:bg-black hover:text-white"
           onClick={() => tryAttempt(chooseNumber)}
         >
           {language ? "Try" : "Revisar"}
@@ -46,7 +45,7 @@ const NumberButtons: React.FC<NumberButtonsProps> = ({
         {numbers.map((number, index) => (
           <button
             key={index}
-            className={`rounded-md w-5 mx-1 ${activeButtons ? "text-gray-400" : "hover:bg-red-400" }`}
+            className={`rounded-md w-6 mx-1 ${activeButtons ? "text-gray-400" : "hover:bg-red-400" }`}
             onClick={() => onNumberClick(number)}
             disabled={activeButtons}
           >

@@ -42,7 +42,7 @@ const NumberTable: React.FC <NumberTableProps> = ({ arrayToMap, randomNumber, la
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="h-[451px] mb-4">
+      <div className="h-[451px] mb-2">
         <table className="table-auto">
           <thead>
             <tr>
@@ -58,7 +58,7 @@ const NumberTable: React.FC <NumberTableProps> = ({ arrayToMap, randomNumber, la
                   <div className="flex justify-center">{index + 1}</div>
                 </td>
                 <td className="border px-4 py-2">
-                  <div className="flex text-rose-800 justify-center tracking-wider">
+                  <div className={`flex ${correctNumbers[index] === 4 && correctPositions[index] === 4 ? "text-green-500"  : "text-rose-800"} justify-center tracking-wider`}>
                     {number}
                   </div>
                 </td>
